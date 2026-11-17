@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Money's Worth — Duarte Marques</title>
+<meta name="description" content="An interactive D3.js dashboard comparing cost of living and purchasing power across OECD countries.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<nav class="nav" aria-label="Main"><div class="wrap"><a class="brand" href="../index.html">Duarte Marques</a><ul><li><a href="../index.html#work">Work</a></li><li><a href="../index.html#music">Music</a></li><li><a href="../index.html#contact">Contact</a></li></ul></div></nav>
+
+<main class="wrap">
+  <header class="case-hero">
+    <a class="back" href="../index.html#work">← All projects</a>
+    <p class="eyebrow" style="margin-top:20px">Information Visualization · D3.js</p>
+    <h1>Your Money's Worth</h1>
+    <p class="lead">Where does a salary go furthest? This interactive dashboard compares purchasing power, cost of living, inflation and quality of life across OECD countries from 2014 to 2024.</p>
+    <div class="facts">
+      <div><span>Role</span><strong>Developer &amp; designer</strong></div>
+      <div><span>Team</span><strong>3 students</strong></div>
+      <div><span>When</span><strong>2024</strong></div>
+      <div><span>Stack</span><strong>JavaScript, D3.js v7</strong></div>
+    </div>
+  </header>
+
+  <figure>
+    <img src="../assets/img/infovis-dashboard.png" alt="Dashboard with a country list, magnet chart, scatter plot of purchasing power versus wages, and a line chart over time">
+    <figcaption>Intermediate prototype: country list, magnet chart, scatter plot and line chart, all linked. The colour scheme was refined later.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>Data</h2>
+    <p>We merged Numbeo indices (quality of life, cost of living, crime, property prices), OECD wages and a global inflation dataset. Then we derived metrics such as the salary-to-cost ratio, inflation-adjusted cost of living and the change in purchasing power. Countries without OECD wage data were dropped.</p>
+
+    <h2>Coordinated views</h2>
+    <ul>
+      <li><strong>Country list</strong> with flags in two columns, to avoid scrolling and overlap. Hovering a country highlights it everywhere, and clicking filters every chart to it.</li>
+      <li><strong>Scatter plot</strong> of purchasing power against wages, filtered by a year-range slider.</li>
+      <li><strong>Line chart</strong> showing purchasing power over time, with a widget to switch it to inflation. This replaced an early radar chart that made linked interaction too fragile.</li>
+    </ul>
+
+    <h2>The magnet chart</h2>
+    <p>The most unusual view is the <strong>magnet chart</strong>. Each magnet is an attribute, such as groceries, property price to income or climate. Each country is a point pulled towards every magnet in proportion to its normalized value for that attribute:</p>
+    <p style="font-family:ui-monospace,Menlo,monospace;font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px">position = Σ (valueₐ × magnetₐ) / Σ valueₐ</p>
+    <p>You can drag the magnets to rearrange the forces. A D3 force simulation then recomputes every country's position, so clusters of similar countries emerge as you explore.</p>
+  </div>
+
+  <div class="figs">
+    <figure>
+      <img src="../assets/img/infovis-magnetChart.png" alt="Design sketch of the magnet chart with draggable attribute magnets">
+      <figcaption>Early design sketch of the magnet chart interaction.</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/img/infovis-lineChart.png" alt="Design sketch of the line chart">
+      <figcaption>Design sketch of the line chart.</figcaption>
+    </figure>
+  </div>
+
+  <div class="next">
+    <a class="btn" href="mindfit.html">← MindFit</a>
+    <a class="btn primary" href="../index.html#work">All projects</a>
+  </div>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Duarte Marques · Data: Numbeo, OECD, Kaggle (non-commercial use)</span><span><a href="mailto:duartemarques.25@icloud.com">Email</a> · <a href="https://www.linkedin.com/in/duarte-marques-43b9701b9/">LinkedIn</a></span></div></footer>
+</body>
+</html>

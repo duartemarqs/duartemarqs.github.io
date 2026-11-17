@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contextualize MySteps — Duarte Marques</title>
+<meta name="description" content="MSc thesis: enriching a lifelogging platform with external context, retroactively, through a plugin architecture and three visualizations.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<nav class="nav" aria-label="Main"><div class="wrap"><a class="brand" href="../index.html">Duarte Marques</a><ul><li><a href="../index.html#work">Work</a></li><li><a href="../index.html#music">Music</a></li><li><a href="../index.html#contact">Contact</a></li></ul></div></nav>
+
+<main class="wrap">
+  <header class="case-hero">
+    <a class="back" href="../index.html#work">← All projects</a>
+    <p class="eyebrow" style="margin-top:20px">MSc thesis · Instituto Superior Técnico</p>
+    <h1>Contextualize MySteps: personal reminiscence in context</h1>
+    <p class="lead">Lifelogs record where we were, but not what it was like. I built a way to enrich years of existing GPS data with real weather after the fact, and three interfaces to explore it.</p>
+    <div class="facts">
+      <div><span>Role</span><strong>Sole author (MSc thesis)</strong></div>
+      <div><span>When</span><strong>2025 – 2026</strong></div>
+      <div><span>Stack</span><strong>React, Redux, Flask, PostgreSQL/PostGIS</strong></div>
+      <div><span>Grade</span><strong>17 / 20</strong></div>
+    </div>
+  </header>
+
+  <figure>
+    <img src="../assets/img/thesis-heatmap.jpg" alt="Calendar Heatmap with a full year of daily precipitation values and a tooltip on one day">
+    <figcaption>The Calendar Heatmap summarizes a whole year of one weather attribute. Hovering a day shows its value.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>The problem</h2>
+    <p>When people recall a past day, the weather and surroundings are among the things they remember most. Lifelogging systems rarely store them, though. The few that do capture context while recording, from a single provider, and can't enrich a lifelog that already exists.</p>
+    <p>MySteps is a geo-temporal lifelogging platform developed at IST that combines GPS tracks with personal annotations. My goal was to add external context to it <em>retroactively</em>, over periods of years, without being tied to a single context type or provider.</p>
+
+    <h2>What I built</h2>
+    <ul>
+      <li><strong>The Context Layer.</strong> An extensible architecture in which each context (weather, traffic, news…) is a plugin. Shared components group GPS points into spatial cells of about 1 km², fetch only data that is still missing, combine sources attribute by attribute, and deal with the rate limits, quotas and failures of free APIs.</li>
+      <li><strong>The Weather Plugin.</strong> The proof of concept. After comparing several weather services, it combines Open-Meteo, World Weather Online and Meteostat to provide 26 hourly and daily attributes for every stay and trip.</li>
+      <li><strong>Three interfaces, one per scale.</strong> A <em>Calendar Heatmap</em> for a whole year, a <em>Context Viewer</em> for the stays and trips of a single day, and <em>Context Filters</em> that extend the existing Visual Queries with weather criteria, such as finding every trip with wind gusts above 50 km/h.</li>
+    </ul>
+  </div>
+
+  <div class="figs">
+    <figure>
+      <img src="../assets/img/thesis-viewer.jpg" alt="Context Viewer table with hourly humidity for each stay and trip of a day">
+      <figcaption>The Context Viewer details each stay and trip of a day, with hourly or daily values.</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/img/thesis-tooltips.jpg" alt="Calendar Heatmap showing the most frequent weather condition per day">
+      <figcaption>Text attributes work too: here, the most frequent weather condition of each day.</figcaption>
+    </figure>
+  </div>
+
+  <div class="prose">
+    <h2>Evaluation</h2>
+    <p>I ran a user study with 17 participants on a synthetic two-year lifelog combined with real weather data.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>82%</b><span>of tasks fully solved</span></div>
+    <div class="stat"><b>2.29 / 10</b><span>mean Raw NASA-TLX: low perceived workload</span></div>
+    <div class="stat"><b>4.65 / 5</b><span>usefulness of Context Filters, the top-rated interface (SUS 70)</span></div>
+  </div>
+
+  <div class="prose">
+    <h2>What I learned</h2>
+    <p>Most of the hard work was invisible: making unreliable free data sources behave like one dependable service. On the interface side, the study showed that people want context to <em>answer questions</em> (“when did I walk home in the rain?”) more than to decorate their timeline. That's why the filters came out on top.</p>
+  </div>
+
+  <div class="next">
+    <a class="btn" href="../index.html#work">← All projects</a>
+    <a class="btn primary" href="ablevoice.html">Next: AbleVoice →</a>
+  </div>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Duarte Marques</span><span><a href="mailto:duartemarques.25@icloud.com">Email</a> · <a href="https://www.linkedin.com/in/duarte-marques-43b9701b9/">LinkedIn</a> · <a href="https://github.com/duartemarqs">GitHub</a></span></div></footer>
+</body>
+</html>
