@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Your Money's Worth — live demo</title>
+        <meta name="description" content="Interactive D3.js dashboard comparing purchasing power, wages and quality of life across OECD countries (2014–2024)." />
+        <link rel="stylesheet" href="./layout.css" />
+        <script src="./d3.v7.min.js"></script>
+        <script src="./main.js" type="module" defer></script>
+    </head>
+    <body>
+        <div class="demo-bar">
+            <a href="../../projects/your-moneys-worth.html">← Back to the case study</a>
+            <span>Live demo · Information Visualization 2024 · team of 3 · best viewed on a desktop screen</span>
+        </div>
+        <header class="page-header">
+            <h1 class="page-title">
+                How much is your
+                <span class="money-field">
+                    <input
+                        id="input-money"
+                        title="Your gross monthly salary (before taxes), in the currency selected next to it."
+                        placeholder=" "
+                        inputmode="decimal"
+                        aria-label="Gross monthly salary"
+                        onfocus="this.placeholder = ''; document.getElementById('money-label').style.display = 'none';"
+                        onblur="if(!this.value) { this.placeholder = ' '; document.getElementById('money-label').style.display = 'block'; }"
+                        maxlength="9"
+                    />
+                    <span class="money-underline"></span>
+                    <span id="money-label">Money</span>
+                </span>
+                <select id="input-currency" class="currency-select" aria-label="Salary currency" title="Currency of your salary"></select>
+                worth?
+            </h1>
+        </header>
+        <div class="salary-options">
+            <label for="input-payments">Gross monthly salary, paid</label>
+            <select id="input-payments" class="currency-select" title="How many monthly salaries you receive per year (e.g. 14 with holiday and Christmas subsidies)"></select>
+            <span>a year</span>
+        </div>
+        <p id="salary-hint" class="salary-hint"></p>
+
+        <main class="dashboard">
+            <!-- * COUNTRY LIST -->
+            <section class="panel panel-countries">
+                <h2>Select countries of interest</h2>
+                <button id="btn-selectAllCountries" class="btn">Select All Countries</button>
+                <div class="country-lists">
+                    <ul id="list-widget-left" class="country-list"></ul>
+                    <ul id="list-widget-right" class="country-list"></ul>
+                </div>
+            </section>
+
+            <!-- * TIMELINE / SLIDER -->
+            <section class="panel panel-timeline">
+                <h2>Select Years of Interest on Timeline</h2>
+                <div class="timeline-controls">
+                    <span id="year-range-label" class="year-range-label"></span>
+                    <button id="btn-resetYears" class="btn" title="Show every year with data">All years</button>
+                </div>
+                <div id="timeline" class="chart"></div>
+            </section>
+
+            <!-- * MAGNET CHART -->
+            <section class="panel panel-magnet">
+                <h2 id="magnet-title">Country Comparison: Quality of Living Attributes</h2>
+                <div class="magnet-body">
+                    <div id="magnet-chart" class="chart">
+                        <!-- magnet chart injected here -->
+                    </div>
+                    <ul id="magnet-list"></ul>
+                </div>
+            </section>
+
+            <!-- * SCATTER PLOT -->
+            <section class="panel panel-scatter">
+                <h2 id="scatter-title">Purchasing Power vs Wages</h2>
+                <div id="scatter-plot" class="chart">
+                    <!-- scatter plot injected here -->
+                </div>
+            </section>
+
+            <!-- * LINE CHART -->
+            <section class="panel panel-line">
+                <h2 id="line-title">Evolution of Purchasing Power/Inflation over the Years</h2>
+                <div class="axis-selector">
+                    <label for="y-axis-selector">Select Y-Axis:</label>
+                    <select id="y-axis-selector">
+                        <option value="Purchasing Power Index">Purchasing Power</option>
+                        <option value="AvgInflation">Average Inflation</option>
+                    </select>
+                </div>
+                <div id="line-chart" class="chart"></div>
+            </section>
+        </main>
+    </body>
+</html>

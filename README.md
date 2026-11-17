@@ -6,6 +6,7 @@ Static site (plain HTML/CSS, no build step), hosted for free on GitHub Pages.
 
 - `index.html` — home: projects, music, education, contact
 - `projects/` — one case study per project
+- `demos/` — runnable project code (e.g. the Your Money's Worth D3 dashboard, MIT licensed, team project)
 - `assets/` — stylesheet, images and video
 - `cv/` — CV in English and Portuguese (PDF)
 
