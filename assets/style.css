@@ -117,6 +117,13 @@ figure { margin: 32px 0; }
 figure img, figure video { border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); width: 100%; }
 figcaption { font-size: 14.5px; color: var(--muted); margin-top: 10px; }
 .figs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.figs.same-height { grid-template-columns: 1.046fr 1.136fr; }
+figure.narrow { max-width: 380px; margin-left: auto; margin-right: auto; }
+figure.narrow figcaption { text-align: center; }
+figure.sketch { max-width: 560px; }
+figure.native { max-width: 512px; }
+figure.stack img + img { margin-top: 12px; }
+figure img[height] { height: auto; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
 .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
 .stat b { display: block; font-size: 30px; color: var(--accent); letter-spacing: -.02em; line-height: 1.1; }
@@ -131,7 +138,7 @@ figcaption { font-size: 14.5px; color: var(--muted); margin-top: 10px; }
   .hero { padding: 48px 0 32px; }
   .hero .wrap { grid-template-columns: 1fr; gap: 24px; }
   .hero .photo { width: 132px; height: 132px; order: -1; }
-  .grid, .small-list, .music, .about, .figs { grid-template-columns: minmax(0, 1fr); }
+  .grid, .small-list, .music, .about, .figs, .figs.same-height { grid-template-columns: minmax(0, 1fr); }
   .facts { grid-template-columns: 1fr 1fr; }
   .stats { grid-template-columns: 1fr; }
   section { padding: 40px 0; }

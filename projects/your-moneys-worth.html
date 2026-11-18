@@ -27,9 +27,10 @@
     </div>
   </header>
 
-  <figure>
-    <img src="../assets/img/infovis-dashboard.png" alt="Dashboard with a country list, magnet chart, scatter plot of purchasing power versus wages, and a line chart over time">
-    <figcaption>Intermediate prototype: country list, magnet chart, scatter plot and line chart, all linked. The colour scheme was refined later.</figcaption>
+  <figure class="stack">
+    <img src="../assets/img/infovis-final-top.png" width="1909" height="782" alt="Top of the final dashboard: salary and currency input, the country list with flags, and the magnet chart with the Property Price to Income, Groceries and Crime magnets active">
+    <img src="../assets/img/infovis-final-bottom.png" width="1908" height="470" alt="Bottom of the final dashboard: the year timeline, the purchasing power versus wages scatter plot, and the line chart of purchasing power from 2014 to 2024">
+    <figcaption>The final dashboard, as it runs in the live demo. Top: salary input, country list and magnet chart. Bottom: year timeline, scatter plot and line chart.</figcaption>
   </figure>
 
   <div class="prose">
@@ -47,18 +48,23 @@
     <p>The most unusual view is the <strong>magnet chart</strong>. Each magnet is an attribute, such as groceries, property price to income or climate. Each country is a point pulled towards every magnet in proportion to its normalized value for that attribute:</p>
     <p style="font-family:ui-monospace,Menlo,monospace;font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px">position = Σ (valueₐ × magnetₐ) / Σ valueₐ</p>
     <p>You can drag the magnets to rearrange the forces. A D3 force simulation then recomputes every country's position, so clusters of similar countries emerge as you explore.</p>
+
+    <h2>From sketch to prototype</h2>
+    <p>The views started as design sketches and went through an intermediate prototype before reaching their final form.</p>
   </div>
 
-  <div class="figs">
-    <figure>
-      <img src="../assets/img/infovis-magnetChart.png" alt="Design sketch of the magnet chart with draggable attribute magnets">
-      <figcaption>Early design sketch of the magnet chart interaction.</figcaption>
-    </figure>
-    <figure>
-      <img src="../assets/img/infovis-lineChart.png" alt="Design sketch of the line chart">
-      <figcaption>Design sketch of the line chart.</figcaption>
-    </figure>
-  </div>
+  <figure class="sketch">
+    <img src="../assets/img/infovis-magnetChart.png" alt="Design sketch of the magnet chart with draggable attribute magnets" loading="lazy">
+    <figcaption>Early design sketch of the magnet chart interaction.</figcaption>
+  </figure>
+  <figure class="native">
+    <img src="../assets/img/infovis-lineChart.png" width="512" height="95" alt="Design sketch of the line chart showing purchasing power evolution from 2014 to 2024, with the selected country highlighted" loading="lazy">
+    <figcaption>Design sketch of the line chart: the country selected in the magnet chart is highlighted over the others.</figcaption>
+  </figure>
+  <figure>
+    <img src="../assets/img/infovis-dashboard.png" alt="Intermediate dashboard with a country list, magnet chart, scatter plot of purchasing power versus wages, and a line chart over time" loading="lazy">
+    <figcaption>Intermediate prototype: country list, magnet chart, scatter plot and line chart, already linked. The layout and colour scheme were refined later.</figcaption>
+  </figure>
 
   <div class="prose">
     <h2>Try it yourself</h2>
@@ -72,6 +78,6 @@
   </div>
 </main>
 
-<footer><div class="wrap"><span>© 2026 Duarte Marques · Data: Numbeo, OECD, Kaggle (non-commercial use)</span><span><a href="mailto:duartemarques.25@icloud.com">Email</a> · <a href="https://www.linkedin.com/in/duarte-marques-43b9701b9/">LinkedIn</a></span></div></footer>
+<footer><div class="wrap"><span>© 2026 Duarte Marques · Data: Numbeo, OECD, World Bank, Kaggle (non-commercial use)</span><span><a href="mailto:duartemarques.25@icloud.com">Email</a> · <a href="https://www.linkedin.com/in/duarte-marques-43b9701b9/">LinkedIn</a></span></div></footer>
 </body>
 </html>
